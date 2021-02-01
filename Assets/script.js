@@ -30,12 +30,10 @@ function getApi() {
             for (var i = 0; i < data.length; i++) {
                 var date = document.createElement('h2');
                 var degree = document.createElement('h3');
-                cityName.textContent = data[i].date;
-                degree.textContent = data[i].temperature;
+                date.textContent = data[i].dailyForecasts;
+                degree.textContent = data[i].Temperature;
                 container.append(date);
                 p.append(degree);
-                container.html(date);
-                p.html(degree);
             }
         });
 }
