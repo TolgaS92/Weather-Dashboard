@@ -1,40 +1,64 @@
-/* var container = $("<div>");
-var p = $("<p>");
-container.addClass("row");
-p.addClass("col-sm-6");
-container.append(p);
+let cityPicked = "";
+let issueContainer = document.getElementById('issues');
+const date = moment().format("MMMM Do YYYY");
 
-$(".container").append(container); */
-
-/* var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
-
-fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/2245013?apikey=e0K4ujKd11MAA5S0Vxj9i5sjhNKy7HKS", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error)); */
-
-var issueContainer = document.getElementById('issues');
-var fetchButton = document.getElementById('fetch-button');
 
 function getApi() {
-    var requestUrl = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/2245013?apikey=e0K4ujKd11MAA5S0Vxj9i5sjhNKy7HKS';
+    const requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityPicked + "&units=imperial&appid=1690177fc6acff4c67ec2d90d2b1d0c6";
+
     fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })
         .then(function (data) {
+            return data.json();
+        }).then(function (data) {
             console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                var date = document.createElement('h2');
-                var degree = document.createElement('h3');
-                date.textContent = data[i].dailyForecasts;
-                degree.textContent = data[i].Temperature;
-                container.append(date);
-                p.append(degree);
-            }
-        });
+            let today = data;
+            let jumbo = document.getElementById("#fetch");
+            let infoJumbo = $("<div>");
+            let day = $("#fetch-elm").addClass("date-of");
+            let dayOf = $("<p>").addClass("actual-date").text(date + " Weather for: ").append(cityPicked)
+            let degree = $("#temperature").text(Math.round(today.main.temp) + "˚F");
+            let humid = $("<p>").addClass("humidity").text("Humidity: " + today.main.humidity + "%");
+            let wind = $("<p>").addClass("wind").text("Wind Speed: " + Math.round(today.wind.speed) + " mph");
+            $("#fetch").append(infoJumbo.append(day, dayOf, degree, humid, wind));
+            $("#one-day").append(jumbo);
+
+
+        })
 }
-fetchButton.addEventListener('click', getApi);
+
+function searchedCities() {
+    $("#searched").empty();
+    for (let i = 0; i < cityPicked.length; i++) {
+        let el = $("<h4 class='city'>");
+        el.attr(cityPicked[i]);
+        el.text(cityPicked[i]);
+        $("#searched").append(el);
+    }
+}
+
+
+$("#submitBtn").on("click", function (event) {
+    event.preventDefault();
+    cityPicked = $("#given-input").val().trim();
+
+    if (!(JSON.parse(localStorage.getItem("city")) || []).includes(cityPicked)) {
+        (JSON.parse(localStorage.getItem("city")) || []).push(cityPicked);
+    }
+    if ((JSON.parse(localStorage.getItem("city")) || []).length > 5) {
+        (JSON.parse(localStorage.getItem("city")) || []).shift();
+    }
+
+    searchedCities();
+    getApi();
+    localStorage.setItem("city", JSON.stringify((JSON.parse(localStorage.getItem("city")) || [])));
+
+    $("#given-input").val("");
+});
+
+searchedCities();
+
+
+$(document).on("click", ".city", function () {
+    cityPicked = $(this).text();
+    getApi();
+});
