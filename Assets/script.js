@@ -137,7 +137,7 @@
     searchedCities();
 
 
-    $(document).on("click", ".city", function () {
+    $(document).on("click", ".cities", function () {
         cityPicked = $(this).text();
         $(cityPicked).on("click", getApi)
         getApi();
