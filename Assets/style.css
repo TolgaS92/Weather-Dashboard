@@ -46,3 +46,10 @@ main > .container {
   font-weight: 1000;
   text-align: center;
 }
+.exp-city {
+  font-weight: 1000;
+  text-align: center;
+}
+#issues {
+  display: none;
+}
