@@ -23,7 +23,11 @@
                 let degree = $("<p>").addClass("lead").text(Math.round(today.main.temp) + "˚F");
                 let humid = $("<p>").addClass("humidity").text("Humidity: " + today.main.humidity + "%");
                 let wind = $("<p>").addClass("wind").text("Wind Speed: " + Math.round(today.wind.speed) + " mph");
-                $("#fetch").append(infoJumbo.append(day, dayOf, expCity, degree, humid, wind));
+                let icon = $("<img>").addClass("rounded mx-auto d-block");
+                icon.attr("src", "http://openweathermap.org/img/wn/" + today.weather[0].icon + "@2x.png");
+                let iconMain = $("<p>").text(today.weather[0].main).addClass("iconexp");
+                console.log(today.weather[0].icon);
+                $("#fetch").append(infoJumbo.append(day, dayOf, expCity, degree, humid, wind, icon, iconMain));
                 $("#one-day").append(jumbo);
 
                 let latitude = today.coord.lat
@@ -73,7 +77,9 @@
                     let humid = $("<p>").text("Humidity: " + days.main.humidity + "%");
                     /* console.log(data.list[0].wind.speed + " mph"); */
                     let wind = $("<p>").text("wind Speed: " + Math.round(days.wind.speed) + " mph");
-                    $("#fetch-five").append(cardInit.append(cardDay, degree, humid, wind));
+                    let icon = $("<img>");
+                    icon.attr("src", "http://openweathermap.org/img/wn/" + days.weather[0].icon + "@2x.png");
+                    $("#fetch-five").append(cardInit.append(cardDay, degree, icon, humid, wind));
                     $("#five-days").append(cards);
                     /* console.log(data.list[8].dt_txt);
                     console.log(data.list[8].main.temp + "˚F");
@@ -133,6 +139,7 @@
 
     $(document).on("click", ".city", function () {
         cityPicked = $(this).text();
+        $(cityPicked).on("click", getApi)
         getApi();
         fiveDaysApi();
     });
