@@ -64,3 +64,27 @@ main > .container {
   width: auto;
 }
 
+.whole {
+  background-color:#343a40;
+  color: aliceblue;
+  font-weight: 700;
+  margin-top: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+.uvdesign {
+  margin: auto;
+  text-align: center;
+  width: 200px;
+}
+.great {
+  background-color: green;
+}
+.mid {
+  background-color: yellow;
+}
+.high {
+  background-color: plum;
+}
