@@ -21,7 +21,8 @@ main > .container {
 }
 
 #searched {
-  display: flex;
+  display: block;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   margin-top: 30px;
   width: 15%;
@@ -53,3 +54,13 @@ main > .container {
 #issues {
   display: none;
 }
+
+.cities {
+  color: #555555;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
+}
+
