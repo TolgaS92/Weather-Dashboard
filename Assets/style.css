@@ -74,7 +74,7 @@ main > .container {
 }
 
 .whole {
-  background-color:#343a40;
+  background-color:#1a2938;
   color: aliceblue;
   font-weight: 700;
   margin-top: 25px;
@@ -82,7 +82,14 @@ main > .container {
   margin-left: 10px;
   padding-right: 10px;
   text-align: center;
+  border: 2px #343a40;
+  border-radius: 25px;
 }
+
+.jumbotron-back {
+ background-color: rgb(113, 132, 160);
+}
+
 .uvdesign {
   margin: auto;
   text-align: center;
