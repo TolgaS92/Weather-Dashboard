@@ -33,7 +33,7 @@
                 let latitude = today.coord.lat
                 let longtitude = today.coord.lon;
                 function uvIndex() {
-                    const uvUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longtitude + "&appid=45b6598a4a1bd706ba39bf0f2ac2fcf4";
+                    const uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longtitude + "&appid=45b6598a4a1bd706ba39bf0f2ac2fcf4";
                     fetch(uvUrl)
                         .then(function (datas) {
                             return datas.json();
