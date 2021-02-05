@@ -94,6 +94,7 @@ main > .container {
   margin: auto;
   text-align: center;
   width: 200px;
+  border-radius: 25px;
 }
 .great {
   background-color: green;

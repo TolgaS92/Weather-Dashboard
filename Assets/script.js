@@ -50,13 +50,13 @@ function render() {
                             let uvIn = $("<p>");
                             uvIn.text("UV index: " + uvInfo.value).addClass("uvdesign");
                             if (uvInfo.value <= 3) {
-                                uvIn.addClass("great");
+                                uvIn.addClass("great").text("UVindex: " + uvInfo.value + " / Favorable");
                             } else if (3 > uvInfo.value) {
-                                uvIn.addClass("mid");
+                                uvIn.addClass("mid").text("UVindex: " + uvInfo.value + " / Moderate");
                             } else if (uvInfo.value < 7) {
-                                uvIn.addClass("mid");
+                                uvIn.addClass("mid").text("UVindex: " + uvInfo.value + " / Moderate");
                             } else if (uvInfo.value > 7) {
-                                uvIn.addClass("high");
+                                uvIn.addClass("high").text("UVindex: " + uvInfo.value + " / Severe");
                             }
                             $("#fetch").append(uvIn);
                         })
