@@ -4,6 +4,8 @@
 1. Bootstrap
 2. Google Fonts
 3. Jquery
+4. Moment.js
+5. OpenWeather API
 
 ## About
 - Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
@@ -19,11 +21,12 @@
 
 ## ScreenShots
 
-![Example](...)
+![Main Page](./Assets/screenshots/MainPagewithouterrors.jpg)
+![City Searched](./Assets/screenshots/CitySearched.jpg)
 
 # HTML validator
 
-- ![HTML Validated](...)
+- ![HTML Validated](./Assets/screenshots/htmlvalidated.jpg)
 
 ## Link
 1. [github.io](https://tolgas92.github.io/Weather-Dashboard/)

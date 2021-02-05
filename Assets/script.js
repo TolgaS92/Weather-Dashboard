@@ -1,10 +1,16 @@
-/* jQuery(document).ready( */function render() {
+/* CallBack function */
+function render() {
     localStorage.removeItem('cities');
+    /* When the page refresh, it's clear the local storage up. */
 
+    /* Given City by the user */
     let cityPicked = "";
+    /* storage */
     let citySearched = JSON.parse(localStorage.getItem("cities")) || [];
+    /* actual date */
     const date = moment().format("MMMM Do YYYY");
 
+    /* Daily forecast function */
     function getApi() {
         const requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityPicked + "&units=imperial&appid=1690177fc6acff4c67ec2d90d2b1d0c6";
 
@@ -30,6 +36,8 @@
                 $("#fetch").append(infoJumbo.append(day, dayOf, expCity, degree, humid, wind, icon, iconMain));
                 $("#one-day").append(jumbo);
 
+
+                /* Uv Index Function */
                 let latitude = today.coord.lat
                 let longtitude = today.coord.lon;
                 function uvIndex() {
@@ -56,6 +64,8 @@
                 uvIndex();
             })
     }
+
+    /* Five days Forecast Function */
     function fiveDaysApi() {
         const urlRequest = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityPicked + "&units=imperial&appid=45b6598a4a1bd706ba39bf0f2ac2fcf4";
 
@@ -101,7 +111,7 @@
             })
     }
 
-
+    /* City Searched history function that spawns the cities under the submit form */
     function searchedCities() {
         $("#searched").empty();
         for (let i = 0; i < citySearched.length; i++) {
@@ -114,7 +124,7 @@
 
     }
 
-
+    /* Click function, it saves searched cities and runs the forecast app.. */
     $("#submitBtn").on("click", function (event) {
         event.preventDefault();
         cityPicked = $("#given-input").val().trim();
@@ -136,7 +146,7 @@
 
     searchedCities();
 
-
+    /* Click function, it gets the cities saved under the submit form and runs the forecast app again */
     $(document).on("click", ".cities", function () {
         cityPicked = $(this).text();
         $(cityPicked).on("click", getApi)

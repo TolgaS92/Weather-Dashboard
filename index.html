@@ -17,24 +17,24 @@
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1">
-                <h2>Weather Dashboard</h2>
-            </span>
+            <p class="nav-name">Weather Dashboard</p>
         </nav>
     </header>
-    <main role="main" class="flex-shrink-0">
+    <main class="flex-shrink-0 mb-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="row ml-2 mt-3">
                         <div class="col-sm-12">
-                            <label for="user-input">Search for a City</label>
+                            <label>Search for a City</label>
                             <form class="d-flex">
                                 <input class="form-control mr-2" type="text" id="given-input">
                                 <button class="btn btn-primary" type="submit" value="Submit"
                                     id="submitBtn">Submit</button>
                             </form>
-                            <aside class="col-sm-12" id="searched"></aside>
+                            <aside class="col-sm-12" id="searched">
+                                <!-- City searched goes here -->
+                            </aside>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,8 @@
                     <div class="row mt-3" id="one-day">
                         <div class="col-sm-11 jumbotron jumbotron-fluid">
                             <div class="container" id="fetch">
-                                <h1 class="display-4" id="fetch-elm"></h1>
+                                <p class="display-4" id="fetch-elm"></p>
+                                <!-- Daily forecast goes here -->
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -52,71 +53,7 @@
                         </div>
                         <div class="col-sm-12" id="five-days">
                             <div class="row" id="fetch-five">
-                                <!-- <div class="col-sm-2">
-                                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">Header</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Secondary card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make
-                                                    up
-                                                    the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">Header</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Secondary card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make
-                                                    up
-                                                    the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">Header</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Secondary card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make
-                                                    up
-                                                    the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">Header</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Secondary card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make
-                                                    up
-                                                    the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">Header</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Secondary card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make
-                                                    up
-                                                    the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                <!-- Five days forecast goes here -->
                             </div>
                         </div>
                     </div>
