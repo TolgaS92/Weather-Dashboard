@@ -24,7 +24,7 @@ function render() {
                 let jumbo = document.getElementById("#fetch");
                 let infoJumbo = $("<div>");
                 let day = $("#fetch-elm").addClass("date-of");
-                let dayOf = $("<h2>").addClass("actual-date").text(date);
+                let dayOf = $("<h4>").addClass("actual-date").text(date);
                 let expCity = $("<p>").addClass("exp-city").text(" Weather for: ").append(cityPicked);
                 let degree = $("<p>").addClass("lead").text(Math.round(today.main.temp) + "˚F");
                 let humid = $("<p>").addClass("humidity").text("Humidity: " + today.main.humidity + "%");
